@@ -1,0 +1,29 @@
+{
+  "name": "object-utils",
+  "version": "1.0.0",
+  "description": "yet another lib to work with Objects in JavaScript",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tjercus/object-utils"
+  },
+  "scripts": {
+    "test": "babel-tape-runner spec/*-spec.js | faucet",
+    "build": "babel src/objectUtils.js -o lib/index.js"
+  },
+  "keywords": [
+    "objects",
+    "utils",
+    "javascript"
+  ],
+  "author": "Tjerk Valentijn",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-tape-runner": "^2.0.1",
+    "faucet": "0.0.1",
+    "tape": "^4.8.0"
+  }
+}
