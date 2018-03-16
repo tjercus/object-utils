@@ -73,9 +73,34 @@ export const removeProperty = (obj, propname) => {
 };
 
 /**
+ * Replace a native 'switch' with a function without side-effects
+ * @param {Object} cases
+ * @returns {function(*): function(*=): *}
+ */
+export const switchcase = cases => defaultCase => key =>
+  cases.hasOwnProperty(key) ? cases[key] : defaultCase;
+
+/**
+ * Replace a native 'switch' with a function without side-effects, and supporting functions for
+ *  handling cases.
+ * @param {Object} cases
+ * @returns {function(*=): function(*=): *}
+ */
+export const switchcaseF = cases => defaultCase => key =>
+  executeIfFunction(switchcase(cases)(defaultCase)(key));
+
+/**
  * Does a value have nothing?
  * @param {*} value - subject
  * @returns {boolean} - has nothing?
  */
 const hasNothing = value =>
   (value === null || value === "" || value === "00:00" || value === "00:00:00" || value <= 0);
+
+/**
+ * Returns the passed parameter or executes it and then returns if it was a function
+ * @param {Function|Object} f
+ * @returns {Function|Object}
+ */
+const executeIfFunction = f =>
+  typeof f === 'function' ? f() : f
