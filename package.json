@@ -1,5 +1,5 @@
 {
-  "name": "object-utils",
+  "name": "object-utils-2",
   "version": "1.1.0",
   "description": "yet another lib to work with Objects in JavaScript",
   "main": "lib/index.js",
